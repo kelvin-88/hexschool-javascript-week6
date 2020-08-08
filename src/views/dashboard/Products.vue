@@ -2,7 +2,7 @@
   <div>
     <h2>後台產品列表</h2>
 
-    <div id="app" class="container mt-3">
+    <div class="container mt-3">
       <div>
         <Loading :active.sync="isLoading"></Loading>
         <div class="text-right mt-4">
@@ -216,7 +216,7 @@
   </div>
 </template>
 <script>
-import Pagination from './Pagination.vue';
+import Pagination from '../Pagination.vue';
 import $ from 'jquery';
 
 export default {
