@@ -18,7 +18,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, index) in products" :key="item.id">
+            <!--tr v-for="(item, index) in products" :key="item.id"-->
+            <tr v-for="(item) in products" :key="item.id">
               <td>{{ item.category }}</td>
               <td>{{ item.title }}</td>
               <td class="text-right">{{ item.origin_price }}</td>
@@ -29,10 +30,11 @@
               </td>
               <td>
                 <div class="btn-group">
-                  <button
+                  <!--button
                     class="btn btn-outline-primary btn-sm"
                     @click="openModal('edit', item, index)"
-                  >產品細節</button>
+                  >產品細節</button-->
+                  <button class="btn btn-outline-primary btn-sm" @click="getProduct(item)">產品細節</button>
                 </div>
               </td>
             </tr>
@@ -232,6 +234,10 @@ export default {
   methods: {
     refreshScreen() {
       this.getProducts(this.pages.current_page);
+    },
+    getProduct(item) {
+      console.log(item.id);
+      this.$router.push({ name: 'product', params: { id: item.id } });
     },
     getProducts(page = 1) {
       this.isLoading = true;
